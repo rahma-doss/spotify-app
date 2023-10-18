@@ -8,7 +8,7 @@ const baseApi = axios.create({
 
 const access_token: string | null = localStorage.getItem("access_token")
 
-console.log("qsdqsdqsdqs", access_token)
+
 baseApi.interceptors.request.use(
     config => {
         // Modify the request config
@@ -45,8 +45,8 @@ export const getToken = async (url: string, data: string) => {
 
 
 
-export const getCurrentUser = async (url: string, token: string) => {
-    // console.log('getCurrentUser', token)
+export const getCurrentUser = async (token: string) => {
+
     try {
         const response = await axios.get('https://api.spotify.com/v1/me', {
             headers: {
@@ -60,7 +60,7 @@ export const getCurrentUser = async (url: string, token: string) => {
     }
 };
 export const getRecentlyPlayedTracks = async (token: string) => {
-    // console.log('getRecentlyPlayedTracks', token)
+
     try {
         const response = await axios.get('https://api.spotify.com/v1/me/player/recently-played', {
             headers: {

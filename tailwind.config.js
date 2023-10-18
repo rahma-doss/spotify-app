@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
     extend: {
@@ -16,23 +17,12 @@ export default {
         customBlack:{
           light:"#101010"
         },
-        darkGreen:"#1D1D1D"
+        darkGreen:"#1D1D1D",
+        colorText:"#b3b3b3",
+        bgRecent:"#ffffff1a"
       },
     },
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')],
 }
 
-// const colors = require('tailwindcss/colors')
-// module.exports = {
-//   theme: {
-//     colors: {
-//       black: {
-//         light: '#85d7ff',
-       
-//         dark: '#009eeb',
-//       },
-//       balckDEFAULT: '#121212',
-//     }
-//   }
-// }

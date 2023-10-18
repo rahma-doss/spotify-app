@@ -11,10 +11,7 @@ import { SPOTIFY_REDIRECT_URI } from '../constants/config';
 
 const fetchUserProfile = async () => {
     const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) {
-        throw new Error('Access token not found.');
-    }
-
+ 
     const response = await axios.get('https://api.spotify.com/v1/me', {
         headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -27,7 +24,6 @@ const UserProfile: React.FC = () => {
     const { data } = useQuery({ queryKey: ['userProfile'], queryFn: () => fetchUserProfile() });
 
 
-    console.log('data', data)
 
     const handleLogout = () => {
 
@@ -35,6 +31,7 @@ const UserProfile: React.FC = () => {
         window.location.href = SPOTIFY_REDIRECT_URI;
 
     };
+    console.log("data", data)
     return (
         <div className="flex gap-x-4 items-center">
             <Button
@@ -48,7 +45,9 @@ const UserProfile: React.FC = () => {
                 className="bg-white-default"
             >
                 <FaUserAlt />
+           
             </Button>
+            {/* <p>{data?.display_name}</p> */}
         </div>
     );
 };

@@ -6,14 +6,9 @@ import { useQuery } from '@tanstack/react-query';
 import { RecentlyPlayedTrack } from '../types/types';
 
 
-
-
-
 const fetchRecentlyPlayed = async () => {
     const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) {
-        throw new Error('Access token not found.');
-    }
+   
 
     const response = await axios.get('https://api.spotify.com/v1/me/player/recently-played', {
         headers: {
@@ -44,27 +39,26 @@ const RecentActivity: React.FC = () => {
     console.log("recentlyPlayedTracks", recentlyPlayedTracks)
 
     return (
-        <div>
-            <ul>
+        <div  >
+        
+            <ul  >
                 {recentlyPlayedTracks?.map((playedTrack: any, index: any) => (
-                    <li key={index}>
-                        <strong>{playedTrack.track.name}</strong> by{" "}
-                        {playedTrack.track.artists.map((artist: any) => artist.name).join(", ")}{" "}
-                        (Played at: {playedTrack.played_at})
+                    <li key={index} className='bg-bgRecent mb-3 rounded-md'>
+                        <div className='flex '  >
+                            {playedTrack.track.album.images?.map((img: any, key: any) =>
+                                key == 0 ? (
+                                    <img key={key} src={img.url} alt="img-album" width={50} />
+                                ) : null
+                            )}
+                            <div className='ml-2' >
+                                <strong className='text-sm' >{playedTrack.track.name}  </strong>
+                                <p className='text-colorText'> {playedTrack.track.artists.map((artist: any) => artist.name).join(", ")}{" "}</p>
+
+                            </div>
+                        </div>
                     </li>
                 ))}
-                {/* 
-{(tracks, loading, error) =>
-                      data && tracks.data
-                        ? tracks.data.items.map((track, ind) => {
-                            return (
-                              <>
-                                <TrackCard track={track} />
-                              </>
-                            )
-                          })
-                        : null
-                    } */}
+
             </ul>
         </div>
     );

@@ -4,14 +4,10 @@ import { SpotifyCardProps } from '../../types/types';
 
 
 
-const SpotifyCard: React.FC<SpotifyCardProps> = ({ key,
-    albumType,
+const SpotifyCard: React.FC<SpotifyCardProps> = ({
     artists,
     images, nameOfSong }) => {
-    console.log("albumType", albumType)
-    console.log("key", key)
-    console.log("images", images)
-    console.log("artists", artists)
+    
 
     // const goToSpotifyMusic=(artist)=>{
 

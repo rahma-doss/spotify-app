@@ -4,7 +4,7 @@ import { ContentPageProps } from '../types/types'
 
 
 const ContentPage: React.FC<ContentPageProps> = ({ resultOfSearch }) => {
-    console.log('resultOfSearch', resultOfSearch)
+   
     return (
         <div>
             <main className="grid place-items-center min-h-screen bg-gradient-to-t p-5">

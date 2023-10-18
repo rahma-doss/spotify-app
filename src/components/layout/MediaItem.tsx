@@ -1,18 +1,18 @@
 import { MediaItemProps } from "../../types/types";
 
 const MediaItem: React.FC<MediaItemProps> = ({
-  onClick,
+
 }) => {
   // const player = usePlayer();
   // const imageUrl = useLoadImage(data);
 
   const handleClick = () => {
- 
-  
- 
+
+
+
   };
 
-  return ( 
+  return (
     <div
       onClick={handleClick}
       className="
@@ -26,7 +26,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
         rounded-md
       "
     >
-      <div 
+      <div
         className="
           relative 
           rounded-md 
@@ -35,11 +35,11 @@ const MediaItem: React.FC<MediaItemProps> = ({
           overflow-hidden
         "
       >
-       <img src="/images/music-placeholder.png" alt="" />
+        <img src="/images/music-placeholder.png" alt="" />
       </div>
-      
+
     </div>
   );
 }
- 
+
 export default MediaItem;

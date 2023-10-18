@@ -41,7 +41,7 @@ export interface MediaItemProps {
   onClick?: (id: string) => void;
 }
 export interface SidebarProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 
 }
 
@@ -55,12 +55,13 @@ export interface SidebarItemProps {
 export interface BoxProps {
   children: React.ReactNode;
   className?: string;
+  height?: string
 }
 export interface NavbarProps {
   className?: string;
-  handleSearch: () => void;
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  searchValue: string;
+  handleSearch?: () => void;
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  searchValue?: string;
 
 }
 export interface ContentPageProps {

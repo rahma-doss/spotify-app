@@ -13,7 +13,7 @@ import { NavbarProps } from "../types/types";
 
 
 const handleLogin = () => {
-  // console.log("hhello")
+
   const redirectUri = encodeURIComponent(SPOTIFY_REDIRECT_URI);
   // window.location.href = `https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&redirect_uri=${redirectUri}&response_type=token`;
   const scope = encodeURIComponent('user-read-recently-played');  // Ajoutez le scope nécessaire
@@ -32,13 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ className, handleSearch,
 
   return (
     <div
-      className={twMerge(`
-        h-fit 
-        bg-customBlack-light
-        pl-6 pr-6 pt-1 pb-1
-        `, className
-
-      )}>
+      className={twMerge(` h-fit  `, className )}>
       <div className="w-full flex items-center justify-between">
         <div className="hidden md:flex gap-x-2 items-center">
           <button
@@ -106,11 +100,12 @@ const Navbar: React.FC<NavbarProps> = ({ className, handleSearch,
             <BiSearch className="text-black" size={20} />
           </button>
         </div>
-        <div className="flex items-center justify-center mt-5">
+        {accessToken!==""?
+           <div className="flex items-center justify-center mt-5">
           <input
             type="text"
             placeholder="Search for a song, artist, or album"
-            className="px-4 py-2 rounded-full w-80 border border-gray-300 focus:outline-none"
+            className="px-4 py-2 rounded-full w-80 border text-black border-gray-300 focus:outline-none"
             value={searchValue}
             onChange={onInputChange}
           />
@@ -121,6 +116,8 @@ const Navbar: React.FC<NavbarProps> = ({ className, handleSearch,
             Search
           </button>
         </div>
+        :null}
+     
         {/* <Search/> */}
         <div className="flex justify-between items-center gap-x-4">
           {accessToken ? (
